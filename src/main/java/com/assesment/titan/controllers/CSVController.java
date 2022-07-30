@@ -35,10 +35,11 @@ public class CSVController {
         message = "Please upload a csv file!";
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ResponseMessage(message));
     }
+
     @GetMapping("/employee")
-    public ResponseEntity<List<Employee>> getAllTutorials() {
+    public ResponseEntity<List<Employee>> getAllEmployees() {
         try {
-            List<Employee> employees = fileService.getAllTutorials();
+            List<Employee> employees = fileService.getAllEmployees();
             if (employees.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }
