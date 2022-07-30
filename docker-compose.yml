@@ -1,0 +1,22 @@
+version: "3.8"
+services:
+  server:
+    build: .
+    restart: always
+    ports:
+      - 8080:8080
+    depends_on:
+      - mysqldb
+
+  mysqldb:
+    platform: linux/x86_64
+    image: "mysql:5.7"
+    restart: always
+    ports:
+      - 3307:3306
+    environment:
+      MYSQL_DATABASE: titans
+      MYSQL_USER: goekhan
+      MYSQL_PASSWORD: goekhan
+      MYSQL_ROOT_PASSWORD: goekhan
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysqldb:3306/titans?autoReconnect=true&useSSL=false
