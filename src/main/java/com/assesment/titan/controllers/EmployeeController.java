@@ -65,5 +65,22 @@ public class EmployeeController {
         return employeeRepository.findByCostcenter(costcenter);
     }
 
+    @GetMapping("/getEmployeename/{id}")
+    public String getEmployeeNameById(@PathVariable("id") Long id) {
+        Optional<Employee> employeeData = employeeRepository.findById(id);
+        return employeeData.get().getFirstname();
+    }
+
+    @GetMapping("/getEmployeelastname/{id}")
+    public String getEmployeeLastNameById(@PathVariable("id") Long id) {
+        Optional<Employee> employeeData = employeeRepository.findById(id);
+        return employeeData.get().getLastname();
+    }
+
+    @GetMapping("/getDepartment/{id}")
+    public String getEmployeeDepartmentById(@PathVariable("id") Long id) {
+        Optional<Employee> employeeData = employeeRepository.findById(id);
+        return employeeData.get().getDepartment();
+    }
 
 }
