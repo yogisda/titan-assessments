@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-@CrossOrigin("http://localhost:8080")
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/api")
 public class EmployeeController {
