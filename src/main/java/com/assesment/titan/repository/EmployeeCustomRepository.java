@@ -1,6 +1,8 @@
 package com.assesment.titan.repository;
 
 import com.assesment.titan.models.Employee;
+import com.assesment.titan.models.EmployeeFirstNameLastNameDepartment;
+import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
@@ -15,4 +17,7 @@ public interface EmployeeCustomRepository {
 
     List<Employee> findByCostcenter(String costcenter);
 
+    List<EmployeeFirstNameLastNameDepartment> findByDepartmentHrOrIT(String firstDepartment, String secondDepartment);
+
+    List<EmployeeFirstNameLastNameDepartment> findByDepartmentHrOrITById(String firstDepartment, String secondDepartment, Long id);
 }

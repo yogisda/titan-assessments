@@ -1,6 +1,7 @@
 package com.assesment.titan.repository;
 
 import com.assesment.titan.models.Employee;
+import com.assesment.titan.models.EmployeeFirstNameLastNameDepartment;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.EntityManager;
@@ -15,6 +16,8 @@ public class EmployeeCustomRepositoryImpl implements EmployeeCustomRepository {
 
     @Autowired
     private EntityManager entityManager;
+
+
 
     @Override
     public List<Employee> findByFirstNameAndDepartment(String firstName, String department) {
@@ -101,5 +104,36 @@ public class EmployeeCustomRepositoryImpl implements EmployeeCustomRepository {
 
         return query.getResultList();
     }
+    @Override
+    public List<EmployeeFirstNameLastNameDepartment> findByDepartmentHrOrIT(String firstDepartment, String secondDepartment) {
+
+
+        String queryStr =
+                "SELECT NEW com.assesment.titan.models.EmployeeFirstNameLastNameDepartment(e.firstname,e.lastname,e.department) " +
+                        "FROM Employee e WHERE e.department = :firstDepartment OR e.department = :secondDepartment";
+        TypedQuery<EmployeeFirstNameLastNameDepartment> query =
+                entityManager.createQuery(queryStr, EmployeeFirstNameLastNameDepartment.class)
+                        .setParameter("firstDepartment", firstDepartment)
+                        .setParameter("secondDepartment", secondDepartment);
+        List<EmployeeFirstNameLastNameDepartment> results = query.getResultList();
+
+        return results;
+    }
+
+    @Override
+    public List<EmployeeFirstNameLastNameDepartment> findByDepartmentHrOrITById(String firstDepartment, String secondDepartment, Long id) {
+        String queryStr =
+                "SELECT NEW com.assesment.titan.models.EmployeeFirstNameLastNameDepartment(e.firstname,e.lastname,e.department) " +
+                        "FROM Employee e WHERE e.id = :id AND (e.department = :firstDepartment OR e.department = :secondDepartment)";
+        TypedQuery<EmployeeFirstNameLastNameDepartment> query =
+                entityManager.createQuery(queryStr, EmployeeFirstNameLastNameDepartment.class)
+                        .setParameter("firstDepartment", firstDepartment)
+                        .setParameter("secondDepartment", secondDepartment)
+                        .setParameter("id", id);
+        List<EmployeeFirstNameLastNameDepartment> results = query.getResultList();
+
+        return results;
+    }
+
 
 }

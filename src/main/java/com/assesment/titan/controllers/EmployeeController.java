@@ -1,6 +1,7 @@
 package com.assesment.titan.controllers;
 
 import com.assesment.titan.models.Employee;
+import com.assesment.titan.models.EmployeeFirstNameLastNameDepartment;
 import com.assesment.titan.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -82,5 +83,20 @@ public class EmployeeController {
         Optional<Employee> employeeData = employeeRepository.findById(id);
         return employeeData.get().getDepartment();
     }
+
+    @GetMapping("/employees/departments/{firstDepartment}/{secondDepartment}")
+    public List<EmployeeFirstNameLastNameDepartment> findByDepartmentHrOrIT(@PathVariable("firstDepartment") String firstDepartment,
+                                                                            @PathVariable("secondDepartment") String secondDepartment) {
+
+        return employeeRepository.findByDepartmentHrOrIT(firstDepartment, secondDepartment);
+    }
+
+    @GetMapping("/employees/departments/{firstDepartment}/{secondDepartment}/{id}")
+    public List<EmployeeFirstNameLastNameDepartment> findByDepartmentHrOrITbyId(@PathVariable("firstDepartment") String firstDepartment,
+                                                                            @PathVariable("secondDepartment") String secondDepartment, @PathVariable("id") Long id) {
+
+        return employeeRepository.findByDepartmentHrOrITById(firstDepartment, secondDepartment,id);
+    }
+
 
 }
