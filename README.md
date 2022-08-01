@@ -122,10 +122,7 @@ Den Terminal in IntelliJ öffnen und folgenden Befehl eingeben
 ```sh
 mvn compile
 ```
-
-Click Start to start the Application
-![image alt text](https://i.ibb.co/XZhH0y7/Bildschirmfoto-2022-08-01-um-13-58-15.png)
-
+After the compile start the Application
 If everything compiles fine "Started CloudApplication" will appear
 ![image alt text](https://i.ibb.co/KKX0k5H/Bildschirmfoto-2022-08-01-um-14-01-53.png)
 
@@ -149,8 +146,7 @@ docker-compose up
 ```
 
 You will see two containers in titan
-![image alt text](https://i.ibb.co/JCJVMwr/Bildschirmfoto-2022-08-01-um-14-17-08.png)
-
+[![docker.png](https://i.postimg.cc/T3DzVGfN/docker.png)](https://postimg.cc/QFjYD2Bc)
 ### Step 6 Run the Backend (Azure)
 
 ##### Prerequisites
