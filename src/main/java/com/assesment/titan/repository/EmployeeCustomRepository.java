@@ -19,5 +19,5 @@ public interface EmployeeCustomRepository {
 
     List<EmployeeFirstNameLastNameDepartment> findByDepartmentHrOrIT(String firstDepartment, String secondDepartment);
 
-    List<EmployeeFirstNameLastNameDepartment> findByDepartmentHrOrITById(String firstDepartment, String secondDepartment, Long id);
+    String findByDepartmentHrOrITById(String firstDepartment, String secondDepartment, Long id);
 }

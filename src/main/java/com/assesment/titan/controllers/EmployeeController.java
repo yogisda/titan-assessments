@@ -92,7 +92,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/employees/departments/{firstDepartment}/{secondDepartment}/{id}")
-    public List<EmployeeFirstNameLastNameDepartment> findByDepartmentHrOrITbyId(@PathVariable("firstDepartment") String firstDepartment,
+    public String findByDepartmentHrOrITbyId(@PathVariable("firstDepartment") String firstDepartment,
                                                                             @PathVariable("secondDepartment") String secondDepartment, @PathVariable("id") Long id) {
 
         return employeeRepository.findByDepartmentHrOrITById(firstDepartment, secondDepartment,id);

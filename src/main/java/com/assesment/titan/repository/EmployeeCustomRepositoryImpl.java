@@ -121,7 +121,7 @@ public class EmployeeCustomRepositoryImpl implements EmployeeCustomRepository {
     }
 
     @Override
-    public List<EmployeeFirstNameLastNameDepartment> findByDepartmentHrOrITById(String firstDepartment, String secondDepartment, Long id) {
+    public String findByDepartmentHrOrITById(String firstDepartment, String secondDepartment, Long id) {
         String queryStr =
                 "SELECT NEW com.assesment.titan.models.EmployeeFirstNameLastNameDepartment(e.firstname,e.lastname,e.department) " +
                         "FROM Employee e WHERE e.id = :id AND (e.department = :firstDepartment OR e.department = :secondDepartment)";
@@ -132,7 +132,22 @@ public class EmployeeCustomRepositoryImpl implements EmployeeCustomRepository {
                         .setParameter("id", id);
         List<EmployeeFirstNameLastNameDepartment> results = query.getResultList();
 
-        return results;
+
+        //$department-$firstname-$lastname
+        String str = "";
+        String str1 = "$";
+        String str2 = "-";
+
+        str += str1;
+        str += results.get(0).department;
+        str += str2;
+        str += str1;
+        str += results.get(0).firstName;
+        str += str2;
+        str += str1;
+        str += results.get(0).lastName;
+
+        return str;
     }
 
 
