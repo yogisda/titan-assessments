@@ -17,8 +17,6 @@ public class EmployeeCustomRepositoryImpl implements EmployeeCustomRepository {
     @Autowired
     private EntityManager entityManager;
 
-
-
     @Override
     public List<Employee> findByFirstNameAndDepartment(String firstName, String department) {
 
@@ -104,6 +102,7 @@ public class EmployeeCustomRepositoryImpl implements EmployeeCustomRepository {
 
         return query.getResultList();
     }
+
     @Override
     public List<EmployeeFirstNameLastNameDepartment> findByDepartmentHrOrIT(String firstDepartment, String secondDepartment) {
 

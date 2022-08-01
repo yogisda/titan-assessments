@@ -1,4 +1,5 @@
 package com.assesment.titan.service;
+
 import java.io.IOException;
 import java.util.List;
 
@@ -13,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class CSVService {
     @Autowired
     private EmployeeRepository repository;
+
     public void save(MultipartFile file) {
         try {
             List<Employee> employees = CSVHelper.csvToTutorials(file.getInputStream());
@@ -21,6 +23,7 @@ public class CSVService {
             throw new RuntimeException("fail to store csv data: " + e.getMessage());
         }
     }
+
     public List<Employee> getAllEmployees() {
         return repository.findAll();
     }

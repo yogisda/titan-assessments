@@ -15,14 +15,15 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Import(BasicAuthWebSecurityConfiguration.class)
 public class CloudApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(CloudApplication.class, args);
+    public static void main(String[] args) {
+        SpringApplication.run(CloudApplication.class, args);
 
-	}
-	@Bean
-	public Docket productApi() {
-		return new Docket(DocumentationType.SWAGGER_2).select()
-				.apis(RequestHandlerSelectors.basePackage("com.assesment.titan")).build();
+    }
 
-	}
+    @Bean
+    public Docket productApi() {
+        return new Docket(DocumentationType.SWAGGER_2).select()
+                .apis(RequestHandlerSelectors.basePackage("com.assesment.titan")).build();
+
+    }
 }
