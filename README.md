@@ -32,6 +32,18 @@ In the Assessment we created a backend to manage Employee Entity on a Spring Boo
 - An API Documentation with Swagger UI
 - Config Files for multiple environments
 
+## Project Overview
+
+Spring Dependencies
+
+![image alt text](https://i.ibb.co/7vS9b0s/Titan-Spring-Dependecies.png)
+
+Java Classes
+
+
+![image alt text](https://i.ibb.co/7nx8dfc/Titan-Java-Classes.png)
+
+
 ## Prerequrites
 
 Titan uses a number of open source projects to work properly:
@@ -136,7 +148,7 @@ Run Docker command for the containers
 docker-compose up
 ```
 
-You will two containers in titan
+You will see two containers in titan
 ![image alt text](https://i.ibb.co/JCJVMwr/Bildschirmfoto-2022-08-01-um-14-17-08.png)
 
 ### Step 6 Run the Backend (Azure)
