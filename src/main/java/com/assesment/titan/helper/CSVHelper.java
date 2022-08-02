@@ -21,7 +21,7 @@ public class CSVHelper {
         return TYPE.equals(file.getContentType());
     }
 
-    public static List<Employee> csvToTutorials(InputStream is) {
+    public static List<Employee> csvToEmployees(InputStream is) {
         try (BufferedReader fileReader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
              CSVParser csvParser = new CSVParser(fileReader,
                      CSVFormat.DEFAULT.withFirstRecordAsHeader().withIgnoreHeaderCase().withTrim())) {
