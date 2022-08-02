@@ -1,7 +1,7 @@
 # Titans Assesment
 ## Spring Boot Application
 
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
+[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://github.com/yogisda/titan-assessments/runs/7615822288?check_suite_focus=true)
 
 In the Assessment we created a backend to manage Employee Entity on a Spring Boot Application with Java.
 
@@ -18,7 +18,7 @@ In the Assessment we created a backend to manage Employee Entity on a Spring Boo
 ## Features
 
 - A CI/CD GitHub Repository based on GitHub Actions
-- Spring Boot Backend to mangage the Entity Customer with Rest Endpoints
+- Spring Boot Backend to manage the Entity Customer with Rest Endpoints
 - JPA for Object-Relational Mapping to convert Java Objects to Database Tables
 - A MySQL Database to store the Data
 - Use of Criteria Queries to Filter on the Entity
@@ -46,7 +46,7 @@ Java Classes
 
 ## Prerequrites
 
-Titan uses a number of open source projects to work properly:
+Titan uses a number of Tools:
 
 - [IntellIJ IDEA](https://www.jetbrains.com/de-de/idea/)
 - [Maven 3.8.6](https://maven.apache.org/)
@@ -88,9 +88,9 @@ mvn compile
 ### Step 3 (Choose an Environment)
 
 There are three environments
-to choose an enviroment modify the file application.properties in the resource folder...
+to choose an environment modify the file application.properties in the resource folder...
 
-The three possbile profiles are
+The three possible profiles are
 
 ```sh
 spring.profiles.active=azure
@@ -118,7 +118,7 @@ Change Application.properties to Local
 spring.profiles.active=local
 ```
 
-Den Terminal in IntelliJ öffnen und folgenden Befehl eingeben
+Open the Terminal and run the following command
 ```sh
 mvn compile
 ```
@@ -128,7 +128,7 @@ If everything compiles fine "Started CloudApplication" will appear
 
 ### Step 5 Run the Backend (Docker)
 
-Change Application.properties to Local
+Change Application.properties to docker
 ```sh
 spring.profiles.active=docker
 ```
@@ -145,13 +145,13 @@ Run Docker command for the containers
 docker-compose up
 ```
 
-You will see two containers in titan
+You will see two containers in the Titan Docker Environment
 [![docker.png](https://i.postimg.cc/T3DzVGfN/docker.png)](https://postimg.cc/QFjYD2Bc)
 ### Step 6 Run the Backend (Azure)
 
 ##### Prerequisites
 
-Change Application.properties to Local
+Change Application.properties to azure
 ```sh
 spring.profiles.active=azure
 ```
