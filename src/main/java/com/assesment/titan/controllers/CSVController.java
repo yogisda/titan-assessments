@@ -9,8 +9,10 @@ import com.assesment.titan.service.CSVService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.lang.Nullable;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+
 
 @CrossOrigin("*")
 @RestController
@@ -35,7 +37,7 @@ public class CSVController {
         message = "Please upload a csv file!";
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ResponseMessage(message));
     }
-
+    @Nullable
     @GetMapping("/employee")
     public ResponseEntity<List<Employee>> getAllEmployees() {
         try {

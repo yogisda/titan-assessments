@@ -3,6 +3,7 @@ package com.assesment.titan.repository;
 import com.assesment.titan.models.Employee;
 import com.assesment.titan.models.EmployeeFirstNameLastNameDepartment;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
@@ -11,7 +12,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import java.util.List;
-
+@Component
 public class EmployeeCustomRepositoryImpl implements EmployeeCustomRepository {
 
     @Autowired
@@ -21,7 +22,7 @@ public class EmployeeCustomRepositoryImpl implements EmployeeCustomRepository {
     public List<Employee> findByFirstNameAndDepartment(String firstName, String department) {
 
         CriteriaBuilder cb = entityManager.getCriteriaBuilder();
-        CriteriaQuery cq = cb.createQuery(Employee.class);
+        CriteriaQuery<Employee> cq = cb.createQuery(Employee.class);
 
         Root<Employee> employee = cq.from(Employee.class);
 
@@ -39,7 +40,7 @@ public class EmployeeCustomRepositoryImpl implements EmployeeCustomRepository {
     public List<Employee> findByFirstName(String firstName) {
 
         CriteriaBuilder cb = entityManager.getCriteriaBuilder();
-        CriteriaQuery cq = cb.createQuery(Employee.class);
+        CriteriaQuery<Employee> cq = cb.createQuery(Employee.class);
 
         Root<Employee> employee = cq.from(Employee.class);
 
@@ -56,7 +57,7 @@ public class EmployeeCustomRepositoryImpl implements EmployeeCustomRepository {
     public List<Employee> findByLastName(String lastName) {
 
         CriteriaBuilder cb = entityManager.getCriteriaBuilder();
-        CriteriaQuery cq = cb.createQuery(Employee.class);
+        CriteriaQuery<Employee> cq = cb.createQuery(Employee.class);
 
         Root<Employee> employee = cq.from(Employee.class);
 
@@ -73,7 +74,7 @@ public class EmployeeCustomRepositoryImpl implements EmployeeCustomRepository {
     public List<Employee> findByDepartment(String department) {
 
         CriteriaBuilder cb = entityManager.getCriteriaBuilder();
-        CriteriaQuery cq = cb.createQuery(Employee.class);
+        CriteriaQuery<Employee> cq = cb.createQuery(Employee.class);
 
         Root<Employee> employee = cq.from(Employee.class);
 
@@ -90,7 +91,7 @@ public class EmployeeCustomRepositoryImpl implements EmployeeCustomRepository {
     public List<Employee> findByCostcenter(String costcenter) {
 
         CriteriaBuilder cb = entityManager.getCriteriaBuilder();
-        CriteriaQuery cq = cb.createQuery(Employee.class);
+        CriteriaQuery<Employee> cq = cb.createQuery(Employee.class);
 
         Root<Employee> employee = cq.from(Employee.class);
 
@@ -114,9 +115,8 @@ public class EmployeeCustomRepositoryImpl implements EmployeeCustomRepository {
                 entityManager.createQuery(queryStr, EmployeeFirstNameLastNameDepartment.class)
                         .setParameter("firstDepartment", firstDepartment)
                         .setParameter("secondDepartment", secondDepartment);
-        List<EmployeeFirstNameLastNameDepartment> results = query.getResultList();
 
-        return results;
+        return query.getResultList();
     }
 
     @Override

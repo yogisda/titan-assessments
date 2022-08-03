@@ -18,6 +18,8 @@ public class EmployeeController {
 
     private final EmployeeRepository employeeRepository;
 
+    private static final String messageNoContent = "No Content";
+
     @Autowired
     public EmployeeController(EmployeeRepository employeeRepository) {
         this.employeeRepository = employeeRepository;
@@ -69,19 +71,27 @@ public class EmployeeController {
     @GetMapping("/getEmployeename/{id}")
     public String getEmployeeNameById(@PathVariable("id") Long id) {
         Optional<Employee> employeeData = employeeRepository.findById(id);
-        return employeeData.get().getFirstname();
+        if (employeeData.isPresent())
+        {return employeeData.get().getFirstname();}
+        else return messageNoContent;
     }
-
     @GetMapping("/getEmployeelastname/{id}")
     public String getEmployeeLastNameById(@PathVariable("id") Long id) {
+
         Optional<Employee> employeeData = employeeRepository.findById(id);
-        return employeeData.get().getLastname();
+        if (employeeData.isPresent())
+        {return employeeData.get().getLastname();}
+        else return messageNoContent;
+
+
     }
 
     @GetMapping("/getDepartment/{id}")
     public String getEmployeeDepartmentById(@PathVariable("id") Long id) {
         Optional<Employee> employeeData = employeeRepository.findById(id);
-        return employeeData.get().getDepartment();
+        if (employeeData.isPresent())
+        {return employeeData.get().getDepartment();}
+        else return messageNoContent;
     }
 
     @GetMapping("/employees/departments/{firstDepartment}/{secondDepartment}")

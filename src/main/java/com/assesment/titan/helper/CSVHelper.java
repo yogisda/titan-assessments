@@ -14,9 +14,12 @@ import org.apache.commons.csv.CSVRecord;
 import org.springframework.web.multipart.MultipartFile;
 
 public class CSVHelper {
-    public static String TYPE = "text/csv";
+    public static final String TYPE = "text/csv";
 
-    // static String[] HEADERs = { "Id", "first_name", "last_name", "department", "birthdate", "costcenter" };
+    private CSVHelper(){
+
+    }
+
     public static boolean hasCSVFormat(MultipartFile file) {
         return TYPE.equals(file.getContentType());
     }
@@ -25,7 +28,7 @@ public class CSVHelper {
         try (BufferedReader fileReader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
              CSVParser csvParser = new CSVParser(fileReader,
                      CSVFormat.DEFAULT.withFirstRecordAsHeader().withIgnoreHeaderCase().withTrim())) {
-            List<Employee> employees = new ArrayList<Employee>();
+            List<Employee> employees = new ArrayList<>();
             Iterable<CSVRecord> csvRecords = csvParser.getRecords();
             for (CSVRecord csvRecord : csvRecords) {
                 Employee employee = new Employee(
